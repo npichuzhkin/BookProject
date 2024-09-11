@@ -23,7 +23,7 @@ public class BookDAO {
     }
 
     public Book readOne(int id){
-        return jdbcTemplate.query("SELECT * FROM Book WHERE id=?", new Object[]{id}, new BeanPropertyRowMapper<>(Book.class)).stream().findAny().orElse(null);
+        return jdbcTemplate.query("SELECT * FROM Book WHERE book_id=?", new Object[]{id}, new BeanPropertyRowMapper<>(Book.class)).stream().findAny().orElse(null);
     }
 
     public List<Book> readByPersonId(int personId){
@@ -35,10 +35,10 @@ public class BookDAO {
     }
 
     public void update(int id, Book updatedBook){
-        jdbcTemplate.update("UPDATE Book SET name=?, author=?, year_of_release=? WHERE id=?", updatedBook.getName(), updatedBook.getAuthor(), updatedBook.getYearOfRelease(), id);
+        jdbcTemplate.update("UPDATE Book SET name=?, author=?, year_of_release=? WHERE book_id=?", updatedBook.getName(), updatedBook.getAuthor(), updatedBook.getYearOfRelease(), id);
     }
 
     public void delete(int id){
-        jdbcTemplate.update("DELETE FROM Book WHERE id=?", id);
+        jdbcTemplate.update("DELETE FROM Book WHERE book_id=?", id);
     }
 }

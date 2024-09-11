@@ -1,16 +1,16 @@
 package com.projectsfortraining.bookproject.models;
 
 public class Person {
-    private int id;
+    private int personId;
     private String name;
     private int yearOfBirth;
 
-    public int getId() {
-        return id;
+    public int getPersonId() {
+        return personId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPersonId(int personId) {
+        this.personId = personId;
     }
 
     public String getName() {

@@ -1,16 +1,16 @@
 package com.projectsfortraining.bookproject.models;
 
 public class Book {
-    private int id;
+    private int bookId;
     private String name;
     private String author;
 
-    public int getId() {
-        return id;
+    public int getBookId() {
+        return bookId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 
     public String getName() {
