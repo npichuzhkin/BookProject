@@ -28,7 +28,7 @@ public class PersonDAO {
     }
 
     public List<Person> readAll(){
-        return  jdbcTemplate.query("SELECT * FROM Person", new BeanPropertyRowMapper<>(Person.class));
+        return  jdbcTemplate.query("SELECT * FROM Person WHERE person_id != 0", new BeanPropertyRowMapper<>(Person.class));
     }
 
     public void update(int id, Person updatedPerson){

@@ -2,7 +2,6 @@ package com.projectsfortraining.bookproject.dao;
 
 import com.projectsfortraining.bookproject.models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -19,7 +18,7 @@ public class BookDAO {
     }
 
     public void create(Book newBook){
-        jdbcTemplate.update("INSERT INTO Book(name, author, year_of_release) VALUES (?,?,?)", newBook.getName(), newBook.getAuthor(), newBook.getYearOfRelease());
+        jdbcTemplate.update("INSERT INTO Book(person_id, name, author, year_of_release) VALUES (?,?,?,?)",newBook.getPersonId(), newBook.getName(), newBook.getAuthor(), newBook.getYearOfRelease());
     }
 
     public Book readOne(int id){
@@ -36,6 +35,10 @@ public class BookDAO {
 
     public void update(int id, Book updatedBook){
         jdbcTemplate.update("UPDATE Book SET name=?, author=?, year_of_release=? WHERE book_id=?", updatedBook.getName(), updatedBook.getAuthor(), updatedBook.getYearOfRelease(), id);
+    }
+
+    public void appointPerson(int id, int personId){
+        jdbcTemplate.update("UPDATE book SET person_id=? WHERE book_id=?", personId, id);
     }
 
     public void delete(int id){

@@ -9,7 +9,7 @@
     <p th:text="${person.getName() + ', ' + person.getYearOfBirth()}"/>
     <p th:if="${#lists.isEmpty(books)}">Человек не брал книг</p>
     <div th:unless="${#lists.isEmpty(books)}">
-        <hr/>
+        <hr/> <b>Книги:</b>
         <p th:each="book : ${books}" th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYearOfRelease()}"/>
     </div>
     <hr/>
