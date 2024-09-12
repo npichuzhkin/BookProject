@@ -1,10 +1,18 @@
 package com.projectsfortraining.bookproject.models;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class Book {
     private int bookId;
 
     private int personId;
+    @NotEmpty(message = "Название книги должно быть заполнено")
+    @Size(min = 2, max = 100, message = "Название книги должно содержать от 2 до 100 символов")
     private String name;
+
+    @NotEmpty(message = "Автор должен быть заполнен")
+    @Size(min=2, max=200, message = "Имя автора должно содержать от 2 до 200 символов")
     private String author;
     private int yearOfRelease;
 
