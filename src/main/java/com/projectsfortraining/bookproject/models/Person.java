@@ -1,9 +1,7 @@
 package com.projectsfortraining.bookproject.models;
 
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class Person {
     private int personId;
@@ -11,7 +9,9 @@ public class Person {
     @Size(min=2, max=200, message = "ФИО должно содержать от 2 до 200 символов")
     @Pattern(regexp = "[А-Я].* [А-Я].* [А-Я].*", message = "ФИО должно быть следующего формата: Фамилия Имя Отчество")
     private String name;
-
+    
+    @Max(value = 3000, message = "Год должен быть целым числом и не превышать 3000")
+    @Positive(message = "Год должен иметь положительное значение")
     private int yearOfBirth;
 
     public int getPersonId() {

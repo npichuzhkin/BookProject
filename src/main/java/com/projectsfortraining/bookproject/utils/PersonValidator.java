@@ -26,8 +26,13 @@ public class PersonValidator implements Validator {
     public void validate(Object o, Errors errors) {
         Person person = (Person) o;
 
-        if(personDAO.readOne(person.getName()).isPresent()){
+        if(suchNameExists(person))
             errors.rejectValue("name","","Человек с таким именем уже существует");
-        }
+
     }
+
+    private boolean suchNameExists(Person person){
+        return personDAO.readOne(person.getName()).isPresent();
+    }
+
 }

@@ -2,6 +2,7 @@ package com.projectsfortraining.bookproject.utils;
 
 import com.projectsfortraining.bookproject.dao.BookDAO;
 import com.projectsfortraining.bookproject.models.Book;
+import com.projectsfortraining.bookproject.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -26,8 +27,12 @@ public class BookValidator implements Validator {
     public void validate(Object o, Errors errors) {
         Book book = (Book) o;
 
-        if(bookDAO.readOne(book.getName()).isPresent()){
+        if(suchNameExists(book)){
             errors.rejectValue("name", "","Книга с таким названием уже существует");
         }
+    }
+
+    private boolean suchNameExists(Book book){
+        return bookDAO.readOne(book.getName()).isPresent();
     }
 }

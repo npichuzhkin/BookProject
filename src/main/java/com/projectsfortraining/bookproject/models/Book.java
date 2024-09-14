@@ -1,7 +1,12 @@
 package com.projectsfortraining.bookproject.models;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import org.springframework.format.datetime.standard.DateTimeContext;
+import sun.util.calendar.BaseCalendar;
+import sun.util.calendar.LocalGregorianCalendar;
+
+import javax.validation.constraints.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 public class Book {
     private int bookId;
@@ -14,6 +19,8 @@ public class Book {
     @NotEmpty(message = "Автор должен быть заполнен")
     @Size(min=2, max=200, message = "Имя автора должно содержать от 2 до 200 символов")
     private String author;
+    @Max(value = 3000, message = "Год должен быть целым числом и не превышать 3000")
+    @Positive(message = "Год должен иметь положительное значение")
     private int yearOfRelease;
 
     public int getBookId() {
