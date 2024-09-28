@@ -1,13 +1,13 @@
 # BookProject
 
 ### Описание проекта
-Простое web-приложение по отображению книг и читателей.
+Простое учебное web-приложение по отображению книг и читателей.
 
 
 ### Для чего создан проект
 Проект написан с целью попробовать на практике или закрепить ряд технологий:
 - Maven;
-- Spring Framework, в частности Spring Core, Spring MVC, Spring Data JPA, Spring Validator;
+- Spring Framework, в частности Spring Core, Spring MVC, Spring Validator;
 - Thymeleaf;
 - Hibernate Validator;
 - PostgreSQL.
@@ -17,3 +17,4 @@
 
 
 ### Краткая демонстрация работы с книгами:
+![crud-book](crudbook1.gif)
